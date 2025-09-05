@@ -126,20 +126,26 @@ int main(){
 	cout<<"ARRAY: ";
 	for(int i=0;i<5;i++){
 		cout<<arr[i]<<" ";
-		L.insertAtEnd(arr[i]);
+		L.insertAtEnd(arr[i]); //add to linked list
 	}
 	
 	cout<<endl<<"LINKED LIST: ";
 	L.display();
 	
 	//insert 9 at the end;
+	cout<<"Adding 9 at the end"<<endl;
 	L.insertAtEnd(9);
+	cout<<"adding 11 at 3rd position"<<endl;
 	L.insertAtPos(11, 3);
+	cout<<"inserting 4 at beginning"<<endl;
 	L.insertAtFront(4);
 	L.display();
+	cout<<"deleting 1, 2 and 5"<<endl;
 	L.deleteData(1);
 	L.deleteData(2);
 	L.deleteData(5);
 	L.display();
-	
+
+	return 0;
 }
+
