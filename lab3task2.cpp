@@ -28,40 +28,7 @@ class linkedList{
 		tail->next = newnode;
 		tail=newnode;	
 	}
-	
-	void insertAtFront(int data){
-		Node* newnode = new Node(data);
-		if(head==NULL){
-			head=tail=newnode;
-			return;
-		}
-		newnode->next = head;
-		head = newnode;
-	}
-	void insertAtPos(int data, int pos){
-		Node *temp = head;
-		if(pos==0){
-			insertAtFront(data); return;
-		}
-		for(int i=0;i<pos-1;i++){
-			temp = temp->next;
-			if(temp==NULL){
-				cout<<"Insufficient number of nodes"<<endl;
-				return;
-			}
-		}
-		
-		if(temp==tail){
-			insertAtEnd(data);
-			return;
-		}
-		
-		Node* newnode = new Node(data);
 
-		newnode->next = temp->next;
-		temp->next = newnode;
-	}
-	
 	void display(){
 		Node *temp =head;
 		while(temp!=NULL){
@@ -110,14 +77,11 @@ int main(){
 	Enter the number: 2
 	After rotation: 1 8 6 4 2 5 3
 	*/
+	int Arr[] = {5, 3, 1, 8, 6, 4, 2};
 	linkedList L;
-	L.insertAtEnd(5);
-	L.insertAtEnd(3);
-	L.insertAtEnd(1);
-	L.insertAtEnd(8);
-	L.insertAtEnd(6);
-	L.insertAtEnd(4);
-	L.insertAtEnd(2);
+	for(int i=0 ; i<sizeof(Arr)/sizeof(Arr[0]) ; i++)
+		L.insertAtEnd(Arr[i]);
+	
 	int num;
 	cout<<"Given list: ";
 	L.display();
@@ -125,5 +89,6 @@ int main(){
 	L.shift(num);
 	cout<<"After rotation: ";
 	L.display();
-	
+
+	return 0;
 }
