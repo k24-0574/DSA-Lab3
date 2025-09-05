@@ -94,16 +94,10 @@ int main(){
     */
     linkedList l;
 
-    l.insertAtEnd(17);
-    l.insertAtEnd(15);
-    l.insertAtEnd(8);
-    l.insertAtEnd(12);
-    l.insertAtEnd(10);
-    l.insertAtEnd(5);
-    l.insertAtEnd(4);
-    l.insertAtEnd(1);
-    l.insertAtEnd(7);
-    l.insertAtEnd(6);
+    int arr[] = {17, 15, 8, 12, 10, 5, 4, 1, 7, 6};
+    for(int i=0;i<sizeof(arr)/sizeof(arr[0]);i++)
+        l.insertAtEnd(arr[i]);
+
     cout<<"Input: ";
     l.display();
     l.arrangeEvenOdd();
