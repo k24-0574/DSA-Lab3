@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Node{
@@ -19,14 +20,51 @@ class PassengerlinkedList{
 		head=tail=NULL;
 	}
 	
-	void insertAtEnd(string name){
+	// void insert(string name){
+	// 	Node* newnode = new Node(name);
+	// 	if(head==NULL){
+	// 		head=tail=newnode;
+	// 		return;
+	// 	}
+		
+	// 	if(name<=head->name){
+	// 		newnode->next = head;
+	// 		head = newnode;
+	// 		return;
+	// 	}
+	// 	Node* temp = head;
+	// 	if(name>=temp->name){
+	// 		newnode->next = head;
+	// 		head = newnode;
+	// 		return;
+	// 	}
+	// 	tail->next = newnode;
+	// 	tail=newnode;
+	// }
+
+	void insert(string name) {
 		Node* newnode = new Node(name);
 		if(head==NULL){
 			head=tail=newnode;
 			return;
 		}
-		tail->next = newnode;
-		tail=newnode;
+		if (name<head->name) {
+			newnode->next= head;
+			head = newnode;
+			return;
+		}
+
+		Node* temp = head;
+		Node* previous = NULL;
+		while (temp!=NULL && temp->name< name) {
+			previous = temp;
+			temp = temp->next;
+		}
+		newnode->next = temp;
+		previous->next = newnode;
+
+		if (temp == NULL) 
+			tail = newnode;
 	}
 
 	void deleteData(string name){
@@ -133,7 +171,7 @@ int main(){
 			break;
 			case 1: 
 				cout<<"Enter Name: ";cin>>name;
-				passengers->insertAtEnd(name);
+				passengers->insert(name);
 			break;
 			case 2: 
 				cout<<"Enter Name: ";cin>>name;
@@ -155,9 +193,10 @@ int main(){
 	FlightLinkedList F;
 	F.insertAtEnd(passengers);
 	PassengerlinkedList *p2 = new PassengerlinkedList;
-	p2->insertAtEnd("AAA");
-	p2->insertAtEnd("BBB");
-	p2->insertAtEnd("CCC");
+	p2->insert("Csahi");
+	p2->insert("cydug");
+	p2->insert("jwddo");
+
 	F.insertAtEnd(p2);
 
 	cout<<endl<<"All Flights: "<<endl;
@@ -165,4 +204,6 @@ int main(){
 
 	delete p2;
 	delete passengers;
+
+	return 0;
 }
