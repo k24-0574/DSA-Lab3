@@ -19,28 +19,6 @@ class PassengerlinkedList{
 	PassengerlinkedList(){
 		head=tail=NULL;
 	}
-	
-	// void insert(string name){
-	// 	Node* newnode = new Node(name);
-	// 	if(head==NULL){
-	// 		head=tail=newnode;
-	// 		return;
-	// 	}
-		
-	// 	if(name<=head->name){
-	// 		newnode->next = head;
-	// 		head = newnode;
-	// 		return;
-	// 	}
-	// 	Node* temp = head;
-	// 	if(name>=temp->name){
-	// 		newnode->next = head;
-	// 		head = newnode;
-	// 		return;
-	// 	}
-	// 	tail->next = newnode;
-	// 	tail=newnode;
-	// }
 
 	void insert(string name) {
 		Node* newnode = new Node(name);
